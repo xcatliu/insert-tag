@@ -1,0 +1,40 @@
+{
+    "name": "insert-tag",
+    "version": "0.0.0",
+    "description": "Insert tag to the specific position of a xml/html string",
+    "main": "index.js",
+    "scripts": {
+        "test": "npm run lint",
+        "mocha": "mocha test/index.ts",
+        "lint": "run-s eslint prettier",
+        "eslint": "eslint --ext .js,.ts .",
+        "prettier": "prettier -l \"./**/*\"",
+        "prettier:fix": "prettier --write -l \"./**/*\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/xcatliu/insert-tag.git"
+    },
+    "author": "xcatliu <xcatliu@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/xcatliu/insert-tag/issues"
+    },
+    "homepage": "https://github.com/xcatliu/insert-tag#readme",
+    "devDependencies": {
+        "@types/chai": "^4.1.7",
+        "@types/mocha": "^5.2.7",
+        "@typescript-eslint/eslint-plugin": "^1.10.2",
+        "@typescript-eslint/parser": "^1.10.2",
+        "babel-eslint": "^10.0.2",
+        "chai": "^4.2.0",
+        "eslint": "^5.16.0",
+        "eslint-config-alloy": "^2.0.4",
+        "eslint-config-prettier": "^5.0.0",
+        "mocha": "^6.1.4",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^1.18.2",
+        "ts-node": "^8.3.0",
+        "typescript": "^3.5.2"
+    }
+}

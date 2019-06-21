@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+    - 10
+branches:
+    only:
+        - master
+        - /^greenkeeper/.*$/
+install:
+    - npm install
+script:
+    - npm test

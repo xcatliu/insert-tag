@@ -1,6 +1,6 @@
 # insert-tag
 
-[![Build Status](https://travis-ci.org/xcatliu/insert-tag.svg?branch=master)](https://travis-ci.org/xcatliu/insert-tag)
+[![Build Status](https://travis-ci.org/xcatliu/insert-tag.svg?branch=master)](https://travis-ci.org/xcatliu/insert-tag) [![Greenkeeper badge](https://badges.greenkeeper.io/xcatliu/insert-tag.svg)](https://greenkeeper.io/)
 
 Insert tag to the specific position of a xml/html string:
 

@@ -1,5 +1,7 @@
 # insert-tag
 
+[![Build Status](https://travis-ci.org/xcatliu/insert-tag.svg?branch=master)](https://travis-ci.org/xcatliu/insert-tag)
+
 Insert tag to the specific position of a xml/html string:
 
 ```html

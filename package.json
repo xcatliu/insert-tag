@@ -46,5 +46,10 @@
         "prettier": "^1.18.2",
         "ts-node": "^8.3.0",
         "typescript": "^3.5.2"
+    },
+    "greenkeeper": {
+        "ignore": [
+            "eslint"
+        ]
     }
 }

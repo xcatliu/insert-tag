@@ -1,12 +1,54 @@
 {
     "compilerOptions": {
+        // 开启的特性
+        //
+        // 默认加载的模块
+        "lib": ["esnext", "dom"],
+
+        // 生成文件的配置
+        //
+        // 指定生成文件的 ECMAScript 版本
+        "target": "es2017",
+        // 指定生成哪个模块系统代码
         "module": "commonjs",
-        "target": "es2018",
-        "strict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
+        // 决定如何处理模块
+        "moduleResolution": "node",
+        // 生成相应的 .map文件
+        "sourceMap": true,
+        // 生成的文件的换行符
+        "newLine": "lf",
+        // 不对具有 /** @internal */ JSDoc 注解的代码生成代码
+        "stripInternal": true,
+        // 生成 d.ts 文件。多用于书写供别人使用的 npm 包
+        "declaration": true,
+        // 指定输出目录
         "outDir": "lib",
-        "declaration": true
+
+        // 严格模式，可选择性的开启，建议开启的越多越好
+        //
+        // 在表达式和声明上有隐含的 any类型时报错
+        "noImplicitAny": true,
+        // 不是函数的所有返回路径都有返回值时报错
+        "noImplicitReturns": true,
+        // 当 this 表达式的值为 any 类型的时候，生成一个错误
+        "noImplicitThis": true,
+        // 若有未使用的参数则抛错
+        "noUnusedParameters": true,
+        // 以严格模式解析并为每个源文件生成 "use strict"语句
+        "alwaysStrict": true,
+        // 在严格的 null 检查模式下， null 和 undefined 值不包含在任何类型里，只允许用它们自己和 any 来赋值
+        "strictNullChecks": true,
+        // 禁用函数参数双向协变检查
+        "strictFunctionTypes": true,
+        // 若有未使用的局部变量则抛错
+        "noUnusedLocals": true,
+        // 确保类的非 undefined 属性已经在构造函数里初始化
+        "strictPropertyInitialization": true,
+
+        // stdout 输出
+        //
+        // 给错误和消息设置样式，使用颜色和上下文
+        "pretty": true
     },
     "include": ["src/**/*"]
 }

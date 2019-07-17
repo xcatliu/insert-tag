@@ -1,5 +1,10 @@
 export declare type InsertPosition = [number, number, number, number];
 export declare class TagInserter {
+    /**
+     * replace escaped strings (e.g. &amp;) to ￿
+     * https://unicode-table.com/en/FFFF/
+     */
+    private static replacer;
     /** The original xml string, e.g. <a>xxx<b>yyy</b>zzz<a> */
     private xmlString;
     /** The start tag to be inserted, e.g. <mark style="color:ref"> */
@@ -20,6 +25,8 @@ export declare class TagInserter {
     private startInsertIndex;
     /** The insert index of end tag */
     private endInsertIndex;
+    /** Escaped strings replaced by placeholder */
+    private replacedList;
     /**
      * Insert tag to the specific position of a xml/html string
      * @param xmlString The original xml string, e.g. <a>xxxxx<b>yyyyy</b>zzzzz<a>
@@ -27,6 +34,10 @@ export declare class TagInserter {
      * @param insertPosition The start and end position to insert tag
      */
     insertTag(xmlString: string, startTag: string, insertPosition: InsertPosition): string;
+    /** replace escaped strings (e.g. &amp;) to ￿ */
+    private replaceEscapedStrings;
+    /** replace ￿ to escaped strings (e.g. &amp;) */
+    private replaceEscapedStringsBack;
     /** Parse xmlString, get tagStack, insertIndex, e.g. */
     private parseXmlString;
     private walkInsideTagStack;
@@ -37,5 +48,5 @@ export declare class TagInserter {
     private isStartTag;
     private isEndTag;
 }
-declare const insertTag: (xmlString: string, startTag: string, insertPosition: [number, number, number, number]) => string;
+declare const insertTag: any;
 export default insertTag;

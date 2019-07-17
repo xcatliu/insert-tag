@@ -1,6 +1,12 @@
 export type InsertPosition = [number, number, number, number];
 
 export class TagInserter {
+    /**
+     * replace escaped strings (e.g. &amp;) to ￿
+     * https://unicode-table.com/en/FFFF/
+     */
+    private static replacer = '￿';
+
     /** The original xml string, e.g. <a>xxx<b>yyy</b>zzz<a> */
     private xmlString!: string;
     /** The start tag to be inserted, e.g. <mark style="color:ref"> */
@@ -21,6 +27,8 @@ export class TagInserter {
     private startInsertIndex = -1;
     /** The insert index of end tag */
     private endInsertIndex = -1;
+    /** Escaped strings replaced by placeholder */
+    private replacedList: string[] = [];
 
     /**
      * Insert tag to the specific position of a xml/html string
@@ -30,10 +38,27 @@ export class TagInserter {
      */
     public insertTag(xmlString: string, startTag: string, insertPosition: InsertPosition) {
         this.reset(xmlString, startTag, insertPosition);
+        this.replaceEscapedStrings();
         this.parseXmlString();
         this.walkInsideTagStack();
         this.insertStartEndTag();
+        this.replaceEscapedStringsBack();
         return this.xmlString;
+    }
+
+    /** replace escaped strings (e.g. &amp;) to ￿ */
+    private replaceEscapedStrings() {
+        this.xmlString = this.xmlString.replace(/&.+?;/g, (matched) => {
+            this.replacedList.push(matched);
+            return TagInserter.replacer;
+        });
+    }
+
+    /** replace ￿ to escaped strings (e.g. &amp;) */
+    private replaceEscapedStringsBack() {
+        this.xmlString = this.xmlString.replace(new RegExp(TagInserter.replacer, 'g'), () => {
+            return this.replacedList.shift() as string;
+        });
     }
 
     /** Parse xmlString, get tagStack, insertIndex, e.g. */

@@ -1,13 +1,23 @@
 {
+    // 统一使用 \n 换行符
     "files.eol": "\n",
+    // 缩进宽度为 4
     "editor.tabSize": 4,
+    // 保存时自动格式化
     "editor.formatOnSave": true,
+    // 默认使用 Prettier 格式化
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // ESLint 保存时自动修复
+    "eslint.autoFixOnSave": true,
+    // ESLint 配置
     "eslint.validate": [
         "javascript",
         {
             "language": "typescript",
+            // ts 文件需要配置 autoFix 才能开启自动修复
             "autoFix": true
         }
     ],
+    // 使用项目的 ts 版本
     "typescript.tsdk": "node_modules/typescript/lib"
 }

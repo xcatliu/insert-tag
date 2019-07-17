@@ -3,6 +3,20 @@ import { expect } from 'chai';
 
 let mark = '<mark>';
 
+describe('real world', () => {
+    it('escaped xml', () => {
+        expect(insertTag('xxx&lt;yyyzzz', mark, [0, 3, 0, 4])).to.equal(
+            'xxx<mark>&lt;</mark>yyyzzz'
+        );
+        expect(insertTag('xxx&lt;yyyzzz', mark, [0, 4, 0, 5])).to.equal(
+            'xxx&lt;<mark>y</mark>yyzzz'
+        );
+        expect(insertTag('xxx&lt;yy&amp;yzzz', mark, [0, 1, 0, 8])).to.equal(
+            'x<mark>xx&lt;yy&amp;y</mark>zzz'
+        );
+    });
+});
+
 describe('insertTag', () => {
     it('no tag in xml string', () => {
         let xmlString = 'xxx';

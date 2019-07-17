@@ -1,6 +1,6 @@
 {
     "name": "insert-tag",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Insert tag to the specific position of a xml/html string",
     "main": "lib/index.js",
     "scripts": {
